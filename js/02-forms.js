@@ -1,3 +1,10 @@
+// preventDefault для ссылок
+const link = document.getElementById('myLink');
+link.addEventListener('click', (e) => {
+  e.preventDefault(); // отменить поведение по умолчание (переход)
+  alert('STOP!');
+});
+
 /*
  * - Событие submit
  * - Действия браузера по умолчанию
@@ -7,20 +14,9 @@
 
 const form = document.querySelector('.js-register-form');
 
-form.addEventListener('submit', onFormSubmit);
+form.addEventListener('submit', function (event) {
+  event.preventDefault(); // отменить поведение по умолчание (перезагрузка)
 
-function onFormSubmit(event) {
-  // event.preventDefault();
-
-  console.log({
-    ct: event.currentTarget,
-    this: this,
-  });
-
-  const formData = new FormData(event.currentTarget);
-
-  formData.forEach((value, name) => {
-    console.log('onFormSubmit -> name', name);
-    console.log('onFormSubmit -> value', value);
-  });
-}
+  const formData = new FormData(this);
+  console.log(formData.values());
+});

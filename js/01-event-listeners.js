@@ -13,21 +13,14 @@ const targetBtn = document.querySelector('.js-target-btn');
 const addListenerBtn = document.querySelector('.js-add-listener');
 const removeListenerBtn = document.querySelector('.js-remove-listener');
 
-addListenerBtn.addEventListener('click', event => {
-  console.log(event);
-  console.log('Вешаю слушателя события на целевую кнопку');
+// onClick
+const handleClick = (event) => console.log(event);
 
-  targetBtn.addEventListener('click', onTargetBtnClick);
+addListenerBtn.addEventListener('click', () => {
+  // по клику на target Button нужно выполнить
+  targetBtn.addEventListener('click', handleClick);
 });
 
-removeListenerBtn.addEventListener('click', event => {
-  console.log(event);
-  console.log('Снимаю слушателя события с целевой кнопки');
-
-  targetBtn.removeEventListener('click', onTargetBtnClick);
+removeListenerBtn.addEventListener('click', () => {
+  targetBtn.removeEventListener('click', handleClick);
 });
-
-function onTargetBtnClick(event) {
-  console.log(event);
-  console.log('Клик по целевой кнопке');
-}
