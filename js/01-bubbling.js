@@ -10,24 +10,28 @@ const refs = {
   innerChild: document.querySelector('#inner-child'),
 };
 
-refs.parent.addEventListener('click', onParentClick);
-refs.child.addEventListener('click', onChildClick);
-refs.innerChild.addEventListener('click', onInnerChildClick);
+refs.parent.addEventListener(
+  'click',
+  () => {
+    console.log('another parent');
+    event.stopImmediatePropagation();
+  },
+  true,
+);
+refs.parent.addEventListener('click', onParentClick, true);
+refs.child.addEventListener('click', onChildClick, true);
+refs.innerChild.addEventListener('click', onInnerChildClick, true);
 
-function onParentClick(evt) {
-  console.log('onParentClick');
-  console.log('onParentClick -> evt.target', evt.target);
-  console.log('onParentClick -> evt.currentTarget', evt.currentTarget);
+function onInnerChildClick(event) {
+  console.log('inner child');
 }
 
-function onChildClick(evt) {
-  console.log('onChildClick');
-  console.log('onChildClick -> evt.target', evt.target);
-  console.log('onChildClick -> evt.currentTarget', evt.currentTarget);
+function onChildClick(event) {
+  console.log('child');
 }
 
-function onInnerChildClick(evt) {
-  console.log('onInnerChildClick');
-  console.log('onInnerChildClick -> evt.target', evt.target);
-  console.log('onInnerChildClick -> evt.currentTarget', evt.currentTarget);
+function onParentClick(event) {
+  // event.stopPropagation(); // отменить распространение события на следующие уровни
+  // event.stopImmediatePropagation();// отменить распространение события даже на текущем уровне
+  console.log('parent');
 }
