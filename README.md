@@ -5,3 +5,4 @@
 - Debounce
 - Search
 - Lazy images
+- Intersection Observer
