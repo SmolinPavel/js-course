@@ -9,6 +9,7 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
   line-height: 1.5;
   color: #2a2a2a;
+  margin: 0;
 }
 
 button,
@@ -27,6 +28,32 @@ img {
 }
 
 .section {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 1rem 40px 5rem;
+}
+
+.container {
+  display: flex;
+  height: 20rem;
+}
+
+.container > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.east {
+  background-color: sandybrown;
+}
+
+.west {
+  background-color: cornflowerblue;
+}
+
+.auto li {
+  list-style: none;
 }
