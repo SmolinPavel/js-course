@@ -1,8 +1,23 @@
-# Делегирование событий
+# Node.js и npm
 
-- Lodash examples:
-- Throttle
-- Debounce
-- Search
-- Lazy images
-- Intersection Observer
+- Basic terminal commands:
+  - pwd
+  - which
+  - ls
+  - cd
+  - nano
+- Node.js
+- npm/yarn
+  - npm init
+  - install a package
+  - node_modules
+- package.json
+  - scripts
+  - main
+  - devDependencies
+- npm registry
+  - organizations
+  - semver
+- Babel
+- Bundling
+- import/export
