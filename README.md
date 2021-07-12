@@ -20,4 +20,4 @@
   - semver
 - Babel
 - Bundling
-- import/export
+- Модульность import/export
