@@ -1,21 +1,15 @@
 {
   "name": "js-course",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "git@github.com:SmolinPavel/js-course.git",
   "author": "SmolinPavel <isingwithaz@gmail.com>",
   "scripts": {
-    "build": "parcel build sandbox.html"
+    "build": "webpack"
   },
   "license": "MIT",
   "dependencies": {
-    "is-thirteen": "^2.0.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "eslint": "^7.30.0",
-    "parcel-bundler": "^1.12.5"
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
   }
 }

@@ -1,23 +1,8 @@
-# Node.js и npm
+# Webpack
 
-- Basic terminal commands:
-  - pwd
-  - which
-  - ls
-  - cd
-  - nano
-- Node.js
-- npm/yarn
-  - npm init
-  - install a package
-  - node_modules
-- package.json
-  - scripts
-  - main
-  - devDependencies
-- npm registry
-  - organizations
-  - semver
-- Babel
-- Bundling
-- Модульность import/export
+- Entry
+- Output
+- Loaders
+- Plugins
+- Mode
+- Browser Compatibility

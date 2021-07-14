@@ -1,4 +1,10 @@
-export const MY_AGE = 18;
-export const MY_HEIGHT = 180;
+function component() {
+  const element = document.createElement('div');
 
-export default MY_HEIGHT;
+  // Lodash, currently included via a script, is required for this line to work
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  return element;
+}
+
+document.body.appendChild(component());
