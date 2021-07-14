@@ -4,5 +4,7 @@
 - Output
 - Loaders
 - Plugins
-- Mode
-- Browser Compatibility
+- Babel Loader
+- Dev Server
+- HtmlWebpackPlugin
+- MiniCssExtractPlugin
