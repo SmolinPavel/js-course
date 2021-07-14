@@ -5,6 +5,6 @@
 - Loaders
 - Plugins
 - Babel Loader
-- Dev Server
 - HtmlWebpackPlugin
 - MiniCssExtractPlugin
+- Dev Server
