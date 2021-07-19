@@ -1,9 +1,6 @@
-console.log(localStorage);
+import cats from './cats.json';
 
-localStorage.setItem('test', JSON.stringify({ value: 'Test', size: 24 }));
+localStorage.setItem('myKey', cats);
 
-const savedData = localStorage.getItem('test');
-console.log('savedData', savedData);
-
-const parsedData = JSON.parse(savedData);
-console.log('parsedData', parsedData);
+const myKey = JSON.parse(localStorage.getItem('myKey'));
+console.log(myKey);

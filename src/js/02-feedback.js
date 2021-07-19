@@ -32,8 +32,8 @@ function onFormSubmit(evt) {
  * - Сохраняем его в хранилище
  * - Можно добавить throttle
  */
-function onTextareaInput(evt) {
-  const message = evt.target.value;
+function onTextareaInput(e) {
+  const message = e.target.value;
 
   localStorage.setItem(STORAGE_KEY, message);
 }
@@ -49,14 +49,3 @@ function populateTextarea() {
     refs.textarea.value = savedMessage;
   }
 }
-
-// const formData = {};
-
-// refs.form.addEventListener('input', e => {
-//   // console.log(e.target.name);
-//   // console.log(e.target.value);
-
-//   formData[e.target.name] = e.target.value;
-
-//   console.log(formData);
-// });

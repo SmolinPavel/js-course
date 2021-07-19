@@ -6,7 +6,7 @@
   "author": "SmolinPavel <isingwithaz@gmail.com>",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html  --public-url /your-folder-name/"
+    "build": "parcel build src/*.html  --public-url /cats/"
   },
   "license": "MIT",
   "devDependencies": {
