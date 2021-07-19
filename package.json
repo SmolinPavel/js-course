@@ -5,27 +5,16 @@
   "repository": "git@github.com:SmolinPavel/js-course.git",
   "author": "SmolinPavel <isingwithaz@gmail.com>",
   "scripts": {
-    "build": "webpack",
-    "prebuild": "rm -rf dist",
-    "serve": "webpack serve",
-    "mystart": "echo 1"
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html  --public-url /your-folder-name/"
   },
   "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-handlebars-precompile": "^1.0.2"
+  },
   "dependencies": {
     "lodash": "^4.17.21",
-    "webpack": "^5.44.0",
-    "webpack-cli": "^4.7.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.7",
-    "html-webpack-plugin": "^5.3.2",
-    "mini-css-extract-plugin": "^2.1.0",
-    "sass": "^1.35.2",
-    "sass-loader": "^12.1.0",
-    "style-loader": "^3.1.0",
-    "webpack-dev-server": "^3.11.2"
+    "lodash.throttle": "^4.1.1"
   }
 }

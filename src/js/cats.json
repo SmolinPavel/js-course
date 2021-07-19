@@ -1,0 +1,39 @@
+{
+    "cats": [
+        {
+            "id": 1,
+            "type": "fat,mrcat",
+            "image": "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg"
+        },
+        {
+            "id": 2,
+            "type": "white,cute",
+            "image": "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554__340.jpg"
+        },
+        {
+            "id": 3,
+            "type": "highquality,lazy",
+            "image": "https://i.natgeofe.com/n/f0dccaca-174b-48a5-b944-9bcddf913645/01-cat-questions-nationalgeographic_1228126.jpg"
+        },
+        {
+            "id": 4,
+            "type": "covid,mask,doctor",
+            "image": "https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg"
+        },
+        {
+            "id": 5,
+            "type": "kitten,fight",
+            "image": "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg"
+        },
+        {
+            "id": 6,
+            "type": "athome,curios",
+            "image": "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2018/08/cat-home-441939.jpg"
+        },
+        {
+            "id": 7,
+            "type": "tiny,small",
+            "image": "https://today.tamu.edu/wp-content/uploads/2020/03/Cc-1180413342-scaled.jpg"
+        }
+    ]
+}
