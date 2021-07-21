@@ -1,7 +1,7 @@
 # Module 10
 
-- Create CLI tool
-- Create npm library
+- Create CLI tool (https://blog.developer.atlassian.com/scripting-with-node/)
+- Publish npm library
 - Deploy app to:
   - heroku
   - netlify
