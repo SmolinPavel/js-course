@@ -7,3 +7,4 @@
   - netlify
   - AWS Amplify
   - AWS S3
+  - AWS EC2?
