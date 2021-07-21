@@ -2,4 +2,8 @@
 
 - Create CLI tool
 - Create npm library
-- Deploy app to heroku, netlify, aws
+- Deploy app to:
+  - heroku
+  - netlify
+  - AWS Amplify
+  - AWS S3
