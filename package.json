@@ -6,6 +6,7 @@
     "@pnotify/core": "^5.2.0",
     "@pnotify/desktop": "^5.2.0",
     "@pnotify/mobile": "^5.2.0",
+    "lodash": "^4.17.21",
     "parcel": "^2.0.0-rc.0",
     "pnotify": "^5.2.0"
   }

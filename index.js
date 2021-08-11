@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import * as PNotifyMobile from '@pnotify/mobile';
@@ -11,7 +12,8 @@ const refs = {
   countriesList: document.getElementById('countries'),
 };
 
-refs.input.addEventListener('input', handleInput);
+const debouncedHandleInput = _.debounce(handleInput, 2000);
+refs.input.addEventListener('input', debouncedHandleInput);
 
 function handleInput(e) {
   const query = e.target.value;
@@ -21,8 +23,9 @@ function handleInput(e) {
         return response.json();
       })
       .then((countries) => {
+        console.log(countries.length);
         const countriesHtml = countries
-          .map((country) => `<h6>${country.name}</h6>`)
+          .map((country) => `<h4>${country.name}</h4>`)
           .join('');
 
         alert({
