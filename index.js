@@ -1,17 +1,24 @@
 const refs = {
-  name: document.getElementById('name'),
-  message: document.getElementById('message'),
-  agreement: document.getElementById('agreement'),
-  age: document.getElementById('age'),
+  input: document.getElementById('input-id'),
+  countriesList: document.getElementById('countries'),
 };
 
-localStorage.setItem('name', 'Tatiana');
+refs.input.addEventListener('input', handleSearch);
 
-window.addEventListener('load', () => {
-  const message = localStorage.getItem('message');
-  const agreement = localStorage.getItem('agreement');
+function handleSearch(e) {
+  const query = e.target.value;
+  if (query) {
+    fetch(`https://restcountries.eu/rest/v2/name/${query}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((countries) => {
+        const countriesHtml = countries
+          .map((country) => `<h1>${country.name}</h1>`)
+          .join('');
 
-  refs.name.value = localStorage.getItem('name');
-  refs.message.value = message;
-  refs.agreement.checked = agreement === 'true';
-});
+        refs.countriesList.insertAdjacentHTML('afterbegin', countriesHtml);
+      })
+      .catch(console.error);
+  }
+}
