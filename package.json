@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "start": "parcel index.html"
+  },
   "dependencies": {
-    "parcel": "^2.0.0-rc.0"
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/desktop": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
+    "parcel": "^2.0.0-rc.0",
+    "pnotify": "^5.2.0"
   }
 }
