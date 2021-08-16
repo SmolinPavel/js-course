@@ -2,9 +2,11 @@ const express = require('express');
 
 const app = express();
 
+// http://localhost:3000/test
 app.get('/test', (req, res) => {
-  const output = { value: 'Some other text!' };
-     res.send(output);
+  const output = { value: 'Hello #34!' };
+
+  res.send(output);
 });
 
 app.listen(3000, () => {

@@ -1,8 +1,14 @@
 [
     {
-        "fullname": "John Doe",
-        "age": 18,
-        "username": "johny",
+        "fullname": "Sergey Zverev",
+        "age": 28,
+        "username": "sergey",
+        "password": "qwerty"
+    },
+    {
+        "fullname": "Aleksandr Bondarenko",
+        "age": 29,
+        "username": "alex",
         "password": "qwerty"
     }
 ]

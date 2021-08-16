@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 
 const app = express();
 
 // this line is required to parse the request body
 app.use(express.json());
+app.use(cors());
 
 /* Create - POST method */
 app.post('/user/add', (req, res) => {
@@ -24,18 +26,18 @@ app.post('/user/add', (req, res) => {
 
 /* Read - GET method */
 app.get('/user/list', (req, res) => {
-  console.log({ res });
   const users = getUserData();
 
   res.send(users);
 });
 
 /* Update - Put method */
-app.put('/user/update/:username', (req, res) => {
-  const username = req.params.username; // 'vadim'
-  const userData = req.body; // { username: 'vadim', age: 51, ... }
 
-  const existUsers = getUserData(); // [ { vadim }, { marina }]
+app.put('/user/update/:username', (req, res) => {
+  const { username } = req.params; // alex
+  const userData = req.body;
+
+  const existUsers = getUserData();
 
   const updatedUsers = existUsers.map((user) => {
     if (username === user.username) {
@@ -55,9 +57,9 @@ app.put('/user/update/:username', (req, res) => {
 
 /* Delete - Delete method */
 app.delete('/user/delete/:username', (req, res) => {
-  const username = req.params.username; // 'vadik'
+  const { username } = req.params;
 
-  const existUsers = getUserData(); // [ { vadik }, { marina }]
+  const existUsers = getUserData();
 
   const filteredUsers = existUsers.filter((user) => user.username !== username);
 
@@ -65,15 +67,17 @@ app.delete('/user/delete/:username', (req, res) => {
 
   res.send({ success: true, msg: `${username} removed successfully` });
 });
+
 /* util functions */
 
 //read the user data from json file
 const saveUserData = (data) => {
+  // { fullname: 'Pavel', age: 50 }
   const stringifyData = JSON.stringify(data);
   fs.writeFileSync('users.json', stringifyData);
 };
 
-// //get the user data from json file
+//get the user data from json file
 const getUserData = () => {
   const jsonData = fs.readFileSync('users.json');
   return JSON.parse(jsonData);
