@@ -1,40 +1,87 @@
-import _ from 'lodash';
-import { alert, defaultModules } from '@pnotify/core';
-import '@pnotify/core/dist/PNotify.css';
-import * as PNotifyMobile from '@pnotify/mobile';
-import '@pnotify/mobile/dist/PNotifyMobile.css';
-import '@pnotify/core/dist/BrightTheme.css';
+const express = require('express');
+const fs = require('fs');
 
-defaultModules.set(PNotifyMobile, {});
+const app = express();
 
-const refs = {
-  input: document.getElementById('input-id'),
-  countriesList: document.getElementById('countries'),
+// this line is required to parse the request body
+app.use(express.json());
+
+/* Create - POST method */
+app.post('/user/add', (req, res) => {
+  const existUsers = getUserData();
+
+  const userData = req.body;
+
+  existUsers.push(userData);
+
+  saveUserData(existUsers);
+
+  res.send({
+    success: true,
+    msg: `${userData.fullname} data added successfully`,
+  });
+});
+
+/* Read - GET method */
+app.get('/user/list', (req, res) => {
+  console.log({ res });
+  const users = getUserData();
+
+  res.send(users);
+});
+
+/* Update - Put method */
+app.put('/user/update/:username', (req, res) => {
+  const username = req.params.username; // 'vadim'
+  const userData = req.body; // { username: 'vadim', age: 51, ... }
+
+  const existUsers = getUserData(); // [ { vadim }, { marina }]
+
+  const updatedUsers = existUsers.map((user) => {
+    if (username === user.username) {
+      return userData;
+    }
+
+    return user;
+  });
+
+  saveUserData(updatedUsers);
+
+  res.send({
+    success: true,
+    msg: `${userData.fullname} data updated successfully`,
+  });
+});
+
+/* Delete - Delete method */
+app.delete('/user/delete/:username', (req, res) => {
+  const username = req.params.username; // 'vadik'
+
+  const existUsers = getUserData(); // [ { vadik }, { marina }]
+
+  const filteredUsers = existUsers.filter((user) => user.username !== username);
+
+  saveUserData(filteredUsers);
+
+  res.send({ success: true, msg: `${username} removed successfully` });
+});
+/* util functions */
+
+//read the user data from json file
+const saveUserData = (data) => {
+  const stringifyData = JSON.stringify(data);
+  fs.writeFileSync('users.json', stringifyData);
 };
 
-const debouncedHandleInput = _.debounce(handleInput, 2000);
-refs.input.addEventListener('input', debouncedHandleInput);
+// //get the user data from json file
+const getUserData = () => {
+  const jsonData = fs.readFileSync('users.json');
+  return JSON.parse(jsonData);
+};
 
-function handleInput(e) {
-  const query = e.target.value;
-  if (query) {
-    fetch(`https://restcountries.eu/rest/v2/name/${query}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((countries) => {
-        console.log(countries.length);
-        const countriesHtml = countries
-          .map((country) => `<h4>${country.name}</h4>`)
-          .join('');
+/* util functions ends */
 
-        alert({
-          type: 'notice',
-          text: 'Hello JS #34!',
-        });
-
-        refs.countriesList.insertAdjacentHTML('afterbegin', countriesHtml);
-      })
-      .catch(console.error);
-  }
-}
+//configure the server port
+app.listen(3000, () => {
+  console.log('Server runs on port 3000');
+});
