@@ -10,17 +10,7 @@
 
 <body>
 
-    <button id="add">Add user!</button>
-    <script>
-        const button = document.getElementById('add');
-
-        button.addEventListener('click', () => {
-            fetch('http://localhost:3000/user/add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-            }).then(response => response.json()).then(console.log)
-        });
-    </script>
+    <h1>Async/await</h1>
 
 </body>
 
